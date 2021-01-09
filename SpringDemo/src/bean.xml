@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	    				  http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 配置资源，把内置对象交给Spring来管理 -->
+	<bean id="customerService" class="com.kanuma.service.CustomerServiceImpl">
+		<constructor-arg name="driver" value="com.mysql.jdbc.Driver"></constructor-arg>
+		<constructor-arg name="port" value="3306"></constructor-arg>
+		<constructor-arg name="today" ref="NOW"></constructor-arg>
+	</bean>
+   
+   <bean id="NOW" class="java.util.Date"></bean>
+</beans>

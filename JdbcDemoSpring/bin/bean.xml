@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	    				  http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- service -->
+	<bean id = "studentService" class="com.kanuma.service.Impl.StudentServiceImpl">
+		<property name ="studentDao" ref ="studentDao"></property>
+	</bean>
+	<!-- dao -->
+	<bean id = "studentDao" class="com.kanuma.Dao.impl.StudentsDaoImpl">
+		<property name="qRunner" ref = "runner"></property>
+	</bean>
+	
+	<!-- query rannner -->
+	<bean id ="runner" class ="org.apache.commons.dbutils.QueryRunner">
+		<constructor-arg name="ds" ref="dataSource"></constructor-arg>
+	</bean>
+	
+	<!-- c3p0 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+	    <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+	    <property name="jdbcUrl" value="jdbc:mysql://192.168.100.130/learnjdbc?useSSL=false"></property>
+	    <property name="user" value="root"></property>
+	    <property name="password" value="lee"></property>		
+	</bean>
+	
+	
+</beans>

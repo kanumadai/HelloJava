@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Refresh" content="5;url=/WebTest/Demo2.html">
+<title>Demo1</title>
+<script type="text/javascript">
+	var i =5;
+	function load(){
+		window.setInterval("changeTime()",1000);
+	}
+	function changeTime(){
+		i--;
+		document.getElementById("span1").innerHTML=i;
+	}
+</script>
+</head>
+<body onload = load()>
+
+<h1>form test</h1>
+	<form action="Demo2.html">
+		Name:<input type="text" name="Name"/><br/>
+		<input type="submit" name="Submit"/>
+	</form>
+	
+<h3>after<font color=#ff0000><span id="span1">5</span></font>s,goto the Demo2</h3>
+</body>
+</html>
