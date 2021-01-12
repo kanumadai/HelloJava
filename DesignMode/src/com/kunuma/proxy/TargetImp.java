@@ -1,5 +1,9 @@
 package com.kunuma.proxy;
-
+/**
+ * 
+ * @author Dynabook
+ *
+ */
 public class TargetImp implements Target{
 
 	@Override

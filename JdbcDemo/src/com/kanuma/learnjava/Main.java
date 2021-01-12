@@ -1,5 +1,7 @@
 package com.kanuma.learnjava;
 
+
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.sql.DataSource;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
@@ -43,8 +47,16 @@ public class Main {
 			
 			String sql= "SELECT * FROM students WHERE grade = ? AND score >= ?";
 			
+			DataSource ds = JdbcUtils.getDataSource();
+			
+			int size=	JdbcUtils.dataSource.getInitialPoolSize();
+			System.out.println(size);
+			size=	JdbcUtils.dataSource.getMinPoolSize();
+			System.out.println(size);
+			size=	JdbcUtils.dataSource.getMaxPoolSize();
+			System.out.println(size);
 			//使用连接池，	使用DbUtils
-			QueryRunner queryRunner = new QueryRunner(JdbcUtils.getDataSource());
+			QueryRunner queryRunner = new QueryRunner(ds);
 
 			//使用ArrayListHandler	
 			students = queryRunner.query(sql,new BeanListHandler<Student>(Student.class),2,60);
