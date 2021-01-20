@@ -58,8 +58,8 @@ public class StudentServiceImpl implements StudentsService {
 		return	studentDao.findStudentByIdOne(id);
 		
 	}
-	
-	@Override
+
+
 	public void changeScore(long sourceId,long targetId,  int score) {
 		// TODO Auto-generated method stub
 		Student sourceStudent = studentDao.findStudentByIdOne(sourceId);
