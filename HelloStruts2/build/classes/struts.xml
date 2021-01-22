@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+<constant name="struts.devMode" value="true"></constant>
+	<package name="p1" extends="struts-default">
+		<action name="users" class="com.kanuma.action.HelloAction" method="findAllUsers">
+			<result name="findAllUsers" type="dispatcher">/success.jsp</result>
+		</action>
+		
+	</package>
+	<package name="p2" extends="struts-default">
+		<action name="testDemo" class="com.kanuma.action.HelloAction2" method="testDemo">
+			<result name="testDemo" type="dispatcher">/success_testDemo.jsp</result>
+		</action>
+		
+	</package>
+	<package name="p_login" extends="struts-default">
+		<action name="login" class="com.kanuma.action.Login" method="userLogin">
+			<result name="login" type="dispatcher">/jsp/login_success.jsp</result>
+		</action>
+		
+	</package>
+	<package name="p_login3" extends="struts-default">
+		<action name="login3" class="com.kanuma.action.HelloAction3" method="testDemo3">
+			<result name="testDemo3" type="dispatcher">/jsp/login_success.jsp</result>
+		</action>		
+	</package>
+	
+	<package name="p_actionContext" extends="struts-default">
+		<action name="users1" class="com.kanuma.action.ActionContextDemo" method="actionContextDemo">
+			<result name="actionContextDemo" type="dispatcher">/jsp/success_testDemo.jsp</result>
+		</action>		
+	</package>
+</struts>
